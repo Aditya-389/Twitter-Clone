@@ -95,7 +95,15 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
     try {
-        res.cookie("jwr", "", { maxAge : 0 }); // setting cookie to expire immediately to delete it
+        // setting cookie to expire immediately to delete it
+        // Best Practice : You must match the SAME options used when setting the cookie.
+        res.cookie("jwt", "", {
+            httpOnly: true,
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+            maxAge: 0,
+        });   
+
         return res.status(200).json({
             success : true,
             message : "User logged out successfully"
