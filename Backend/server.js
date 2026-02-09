@@ -6,6 +6,7 @@ import connectToDB from "./config/database.js";
 
 import authRoutes from "./routes/auth_routes.js";
 import userRoutes from "./routes/user_routes.js";
+import postRoutes from "./routes/post_routes.js";
 
 import cookieParser from "cookie-parser";
 
@@ -26,6 +27,7 @@ connectToDB();
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
 
 const PORT = process.env.PORT;
