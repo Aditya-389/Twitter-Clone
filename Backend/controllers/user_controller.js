@@ -36,8 +36,8 @@ export const follow_unfollow_user = async (req, res) => {
         const userToModify = await User.findById(id);  // user to be followed/unfollowed
         const currentUser = await User.findById(req.user._id); 
 
-        console.log(id);
-        console.log(req.user._id);
+        // console.log(id);
+        // console.log(req.user._id);
  
 
         if(id === req.user.id) {
