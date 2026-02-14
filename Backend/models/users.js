@@ -48,7 +48,7 @@ const  UserSchema = new mongoose.Schema({
     },
     likedPosts : [
         {
-            type : mongoose.Schema.Types.ObjectId,
+            type : mongoose.Schema.Types.ObjectId, // referencing the post that is liked
             ref : "Post",
             default : []
         }
